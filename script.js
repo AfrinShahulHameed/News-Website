@@ -2,11 +2,13 @@
 const url = "https://newsapi.org/v2/everything?q=";
 window.addEventListener("load", () => fetchNews("Technology"));
 
+
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data = await res.json();
-    bindData(data.articles);
+  const res = await fetch(`/api/news?q=${query}`);
+  const articles = await res.json();
+  bindData(articles); // your existing function to display news
 }
+
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cardscontainer");

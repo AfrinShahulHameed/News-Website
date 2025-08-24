@@ -5,7 +5,7 @@ window.addEventListener("load", () => fetchNews("Technology"));
 
 
 async function fetchNews(query) {
-    const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
+   const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
     const data = await res.json();
     bindData(data);
 }

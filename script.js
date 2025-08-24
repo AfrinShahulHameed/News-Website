@@ -1,15 +1,16 @@
-const API_KEY = "3b268c15f1d14bcab08b263b852f9fd8";
-const url = "https://newsapi.org/v2/everything?q=";
+// script.js
 
 window.addEventListener("load", () => fetchNews("Technology"));
 
-
 async function fetchNews(query) {
-   const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
-    const data = await res.json();
-    bindData(data);
+    try {
+        const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
+        const data = await res.json();
+        bindData(data);
+    } catch (err) {
+        console.error("Error fetching news:", err);
+    }
 }
-
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cardscontainer");
@@ -19,7 +20,6 @@ function bindData(articles) {
 
     articles.forEach((article) => {
         if (!article.urlToImage) return;
-
         const cardClone = newsCardTemplate.content.cloneNode(true);
         fillDataInCard(cardClone, article);
         cardsContainer.appendChild(cardClone);

@@ -1,149 +1,190 @@
+/* Reset */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+/* Root Palette */
 :root {
-    --primary-text-color: #183b56;
-    --secondary-text-color: #577592;
-    --accent-color: #2294ed;
-    --accent-color-dark: #1d69a3;
+  --primary-text-color: #1E1E1E;      /* Charcoal Black */
+  --secondary-text-color: #555555;    /* Slightly lighter for readability */
+  --accent-red: #D32F2F;              /* Breaking news highlight */
+  --accent-blue: #1976D2;             /* Links, buttons */
+  --background: #F9F9F9;              /* Clean background */
+  --neutral-gray: #E0E0E0;             /* Dividers, borders */
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Body */
 body {
-    font-family: "Poppins", sans-serif;
-    color: var(--primary-text-color);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+  color: var(--primary-text-color);
+  line-height: 1.6;
 }
 
-p {
-    color: var(--secondary-text-color);
-    line-height: 1.4rem;
-}
-
+/* Links */
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: inherit;
 }
 
-ul {
-    list-style: none;
-}
-
-.flex {
-    display: flex;
-    align-items: center;
-}
-
+/* Containers */
 .container {
-    max-width: 1180px;
-    margin-inline: auto;
-    overflow: hidden;
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 16px;
 }
 
+/* Navigation */
 nav {
-    background-color: #f3faff;
-    box-shadow: 0 0 4px #bbd0e2;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    left: 0;
-    right: 0;
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  padding: 10px 0;
 }
 
 .main-nav {
-    justify-content: space-between;
-    padding-block: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Logo */
 .company-logo img {
-    width: 120px;
+  width: 100px; /* Smaller logo */
+  height: auto;
 }
 
+/* Responsive logo for smaller screens */
+@media (max-width: 768px) {
+  .company-logo img {
+    width: 80px;
+  }
+}
+
+/* Navigation Links */
 .nav-links ul {
-    gap: 16px;
+  display: flex;
+  gap: 24px;
+  font-weight: 500;
 }
 
-.hover-link {
-    cursor: pointer;
+.nav-links li {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-.hover-link:hover {
-    color: var(--secondary-text-color);
-}
-
-.hover-link:active {
-    color: red;
+.nav-links li:hover {
+  background-color: var(--accent-blue);
+  color: #ffffff;
 }
 
 .nav-item.active {
-    color: var(--accent-color);
+  color: var(--accent-red);
+  font-weight: bold;
 }
 
+/* Search Bar */
 .search-bar {
-    height: 32px;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 4px 10px;
+  box-shadow: inset 2px 2px 5px #d1d5db, inset -2px -2px 5px #ffffff;
 }
 
 .news-input {
-    width: 200px;
-    height: 100%;
-    padding-inline: 12px;
-    border-radius: 4px;
-    border: 2px solid #bbd0e2;
+  width: 220px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 6px;
 }
 
 .search-button {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 8px 24px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
 }
 
 .search-button:hover {
-    background-color: var(--accent-color-dark);
+  background-color: var(--accent-red);
 }
 
+/* Main Section */
 main {
-    padding-block: 20px;
-    margin-top: 80px;
+  padding-top: 100px;
 }
 
+/* Cards Layout */
 .cards-container {
-    justify-content: space-between;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
 
 .card {
-    width: 360px;
-    min-height: 400px;
-    box-shadow: 0 0 4px #d4ecff;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #fff;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  width: 100%;
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-    box-shadow: 1px 1px 8px #d4ecff;
-    background-color: #f9fdff;
-    transform: translate(-2px);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--neutral-gray);
 }
 
 .card-header img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .card-content {
-    padding: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+
+.card-content p {
+  color: var(--secondary-text-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .news-source {
-    margin-block: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  margin-top: auto;
 }

@@ -1,15 +1,12 @@
-// script.js
+const API_KEY = import.meta.env.VITE_API_KEY;
+const url = "https://newsapi.org/v2/everything?q=";
 
 window.addEventListener("load", () => fetchNews("Technology"));
 
 async function fetchNews(query) {
-    try {
-        const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
-        const data = await res.json();
-        bindData(data);
-    } catch (err) {
-        console.error("Error fetching news:", err);
-    }
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const data = await res.json();
+    bindData(data.articles);
 }
 
 function bindData(articles) {
@@ -20,6 +17,7 @@ function bindData(articles) {
 
     articles.forEach((article) => {
         if (!article.urlToImage) return;
+
         const cardClone = newsCardTemplate.content.cloneNode(true);
         fillDataInCard(cardClone, article);
         cardsContainer.appendChild(cardClone);

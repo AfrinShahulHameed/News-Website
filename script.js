@@ -1,12 +1,13 @@
 const API_KEY = "3b268c15f1d14bcab08b263b852f9fd8";
 const url = "https://newsapi.org/v2/everything?q=";
+
 window.addEventListener("load", () => fetchNews("Technology"));
 
 
 async function fetchNews(query) {
-  const res = await fetch(`/api/news?q=${query}`);
-  const articles = await res.json();
-  bindData(articles); // your existing function to display news
+    const res = await fetch(`/.netlify/functions/getNews?q=${query}`);
+    const data = await res.json();
+    bindData(data);
 }
 
 

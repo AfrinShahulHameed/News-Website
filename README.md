@@ -19,5 +19,8 @@ A professional and responsive **News Website** built with **HTML, CSS, and JavaS
 The News Website is deployed and fully functional.  
 Experience it live here: [https://enchanting-blini-a5552f.netlify.app/](https://enchanting-blini-a5552f.netlify.app/)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6b6fa08b602e1dd512a259f7dbb7edcf3d5fe896
 ![News Website](images/NewsWebsite.png)

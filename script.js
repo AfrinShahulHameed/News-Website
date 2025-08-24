@@ -8,6 +8,10 @@ async function fetchNews(query) {
     const data = await res.json();
     bindData(data.articles);
 }
+function onNavItemClick(query) {
+  fetchNews(query);
+}
+
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cardscontainer");

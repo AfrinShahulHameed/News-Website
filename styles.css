@@ -5,14 +5,14 @@
   box-sizing: border-box;
 }
 
-/* Root Palette */
+/* Root Palette (NEW) */
 :root {
-  --primary-text-color: #1E1E1E;      /* Charcoal Black */
-  --secondary-text-color: #555555;    /* Slightly lighter for readability */
-  --accent-red: #D32F2F;              /* Breaking news highlight */
-  --accent-blue: #1976D2;             /* Links, buttons */
-  --background: #F9F9F9;              /* Clean background */
-  --neutral-gray: #E0E0E0;             /* Dividers, borders */
+  --primary-text-color: #2B2D42;      /* Deep Navy Gray */
+  --secondary-text-color: #6D6875;    /* Muted Purple-Gray */
+  --accent-red: #EF233C;              /* Bold Red for Breaking News */
+  --accent-blue: #3A86FF;             /* Modern Bright Blue for Links/Buttons */
+  --background: #F8F7FF;              /* Soft Lavender-White background */
+  --neutral-gray: #E5E5E5;            /* Dividers, borders */
   --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -134,9 +134,28 @@ main {
 /* Cards Layout */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* Always 4 in a row */
   gap: 30px;
   justify-items: center;
+}
+
+/* Responsive grid */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
